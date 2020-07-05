@@ -33,7 +33,6 @@ def substrings(str, dict)
                         else
                             result[word1] = 1
                         end
-                        # pp result
                     end
                 end
             end
@@ -45,7 +44,7 @@ end
 
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
 
-# pp substrings("below", dictionary)
+pp substrings("below", dictionary)
 
 # { "below" => 1, "low" => 1 }
 
