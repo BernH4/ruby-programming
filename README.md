@@ -10,5 +10,7 @@ A repository for projects made using Ruby, following [The Odin's Project Ruby's 
 
 4. Stock Picker → from [Project: Stock Picker](https://www.theodinproject.com/courses/ruby-programming/lessons/stock-picker?ref=lnav)
 
+5. Bubble Sort → from [Project: Bubble Sort](https://www.theodinproject.com/courses/ruby-programming/lessons/bubble-sort?ref=lnav)
 
+6. Tic Tac Toe from [Project 1: Tic Tac Toe](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
 
