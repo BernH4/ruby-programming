@@ -1,20 +1,18 @@
 class Board
-    attr_accessor :board
-    attr_accessor :count
-    attr_accessor :last_player
+    attr_accessor :board, :count, :last_player
 
     def initialize
         @moves = []
         @count = 0
         @board = [
-            ["", "", ""],
-            ["", "", ""],
-            ["", "", ""]
+            [" ", " ", " "],
+            [" ", " ", " "],
+            [" ", " ", " "]
         ]
         @last_player = ''
     end
 
-    
+
     private
 
     def check_horizontal?(board = @board)
@@ -48,9 +46,21 @@ class Board
     
     public
 
+    def display_board
+        "
+        i\\j| 0 | 1 | 2
+        ---------------
+         0 | #{@board[0][0]} | #{@board[0][1]} | #{@board[0][2]}
+        ---------------
+         1 | #{@board[1][0]} | #{@board[1][1]} | #{@board[1][2]}
+        ---------------
+         2 | #{@board[2][0]} | #{@board[2][1]} | #{@board[2][2]}
+        "
+    end
+
     def move?(i, j, player)
         # pp valid_move?([i , j])
-        if @board[i][j].length > 0
+        if @board[i][j] != " "
             return false
         else
             @moves << [i, j, player]
@@ -77,6 +87,9 @@ while tic.count < 9
     else
         player = 'O'
     end
+
+    puts ""
+    puts tic.display_board
 
     puts ""
     puts "It's #{player} turn. Where's your next move?"
@@ -118,11 +131,10 @@ while tic.count < 9
     else
         tic.move?(i, j, player)
     end
-
-    puts ""
-    pp tic.board
     
     if tic.check_win?
+        puts ""
+        puts tic.display_board
         puts ""
         puts "#{tic.last_player} WINS!"
         break
