@@ -14,3 +14,4 @@ A repository for projects made using Ruby, following [The Odin's Project Ruby's 
 
 6. Tic Tac Toe from [Project 1: Tic Tac Toe](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
 
+7. Mastermind from [Project 2: Mastermind](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
