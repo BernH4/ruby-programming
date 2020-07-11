@@ -14,33 +14,8 @@ class Board
         @last_player = ''
     end
 
+    
     private
-
-    # def create
-    #     board = []
-
-    #     for i in 0..2
-    #         arr = []
-
-    #         for j in 0..2
-    #             is_empty = true
-
-    #             @moves.each do |m|
-    #                 if i == m[0] && j == m[1]
-    #                     arr << m[2]
-    #                     is_empty = false
-    #                     @last_player = m[2]
-    #                 end
-    #             end
-
-    #             is_empty ? arr << '' : nil 
-    #         end
-
-    #         board << arr
-    #     end
-
-    #     board
-    # end
 
     def check_horizontal?(board = @board)
         for i in 0..2 
@@ -70,20 +45,23 @@ class Board
         )
     end
 
+    
     public
 
     def move?(i, j, player)
-        @moves.each do |m|
-            if @board[m[0]][m[1]].length < 1
-                @board[m[0]][m[1]] == player
-                return true
-            else
-                return false
+        # pp valid_move?([i , j])
+        if @board[i][j].length > 0
+            return false
+        else
+            @moves << [i, j, player]
+            @moves.each do |m|    
+                @board[m[0]][m[1]] = m[2]
             end
         end
 
-        @moves << [i, j, player]
         @count += 1
+        @last_player = player
+        true
     end
 
     def check_win?
@@ -133,7 +111,13 @@ while tic.count < 9
         end
     end
 
-    pp tic.move?(i, j, player)
+    if tic.move?(i, j, player) == false
+        puts ""
+        puts "Invalid move! Please pick another location"
+        next
+    else
+        tic.move?(i, j, player)
+    end
 
     puts ""
     pp tic.board
