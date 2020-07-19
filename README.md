@@ -12,6 +12,12 @@ A repository for projects made using Ruby, following [The Odin's Project Ruby's 
 
 5. Bubble Sort → from [Project: Bubble Sort](https://www.theodinproject.com/courses/ruby-programming/lessons/bubble-sort?ref=lnav)
 
-6. Tic Tac Toe from [Project 1: Tic Tac Toe](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
+6. Tic Tac Toe → from [Project 1: Tic Tac Toe](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
 
-7. Mastermind from [Project 2: Mastermind](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
+7. Mastermind → from [Project 2: Mastermind](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
+
+8. Find the Heaviest Rock → from Recursion Chapter in [The Bastards Book of Ruby](http://ruby.bastardsbook.com/chapters/recursion/)
+ 
+9. Recursion Challenges → from [Ruby Kickstart - Introduction to Recursion](https://vimeo.com/24716767)
+
+10. Recursion Challenges 2 → from [CodeQuizzes](https://www.codequizzes.com/computer-science/beginner/recursion)
