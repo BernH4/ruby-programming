@@ -21,3 +21,7 @@ A repository for projects made using Ruby, following [The Odin's Project Ruby's 
 9. Recursion Challenges → from [Ruby Kickstart - Introduction to Recursion](https://vimeo.com/24716767)
 
 10. Recursion Challenges 2 → from [CodeQuizzes](https://www.codequizzes.com/computer-science/beginner/recursion)
+
+11. Collatz Recursion → from [CS50 Recursion](https://www.youtube.com/watch?v=mz6tAJMVmfM)
+
+12. Merge Sort → from [Assignment 2: Merge Sort](https://www.theodinproject.com/courses/ruby-programming/lessons/recursion?ref=lnav)
