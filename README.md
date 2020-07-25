@@ -25,3 +25,5 @@ A repository for projects made using Ruby, following [The Odin's Project Ruby's 
 11. Collatz Recursion → from [CS50 Recursion](https://www.youtube.com/watch?v=mz6tAJMVmfM)
 
 12. Merge Sort → from [Assignment 2: Merge Sort](https://www.theodinproject.com/courses/ruby-programming/lessons/recursion?ref=lnav)
+
+13. Linked List → from [Project: Linked Lists](https://www.theodinproject.com/courses/ruby-programming/lessons/linked-lists?ref=lnav)
