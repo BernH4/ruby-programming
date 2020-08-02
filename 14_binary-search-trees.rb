@@ -1,5 +1,4 @@
 class Node
-    # include Comparable
     attr_accessor :data, :left, :right
 
     def initialize(data)
@@ -96,12 +95,16 @@ class Tree
     end
 
     def find(node = @root, n)
+        # return if the current node is equal to n
         return node if node.data == n
 
+        # if left or right is equal to n, then the node is found
         if node.left && node.left.data == n
             node = node.left
         elsif node.right && node.right.data == n
             node = node.right
+
+        # if n is lesser than current node then move left, else move right
         elsif n < node.data
             find(node.left, n)
         else
@@ -109,19 +112,22 @@ class Tree
         end
     end
 
-    def level_order(node = @root, arr = [@root.data], queue = [])
-        return arr if node == nil
+    def level_order(node = @root, arr = [], queue = [@root])
+        return arr if queue.length < 1
 
-        if node.left
+        arr << queue[0].data
+
+        if node && node.left
             queue << node.left
         end
 
-        if node.right
+        if node && node.right
             queue << node.right
         end
 
-        level_order(node.left, arr)
-        level_order(node.right, arr)
+        queue.shift
+        node = queue[0]
+        level_order(node, arr, queue)
     end
 
     def preorder(node = @root, arr = []) #nlr
@@ -151,30 +157,83 @@ class Tree
         arr << node.data
     end
 
-    def depth(node = @root, arr = [@root.data])
-        return arr if node == nil
+    def height(node = @root, count = 0)
+        return count if node.left == nil && node.right == nil
 
-        inner_arr = []
+        count += 1
 
-        if node.left
-            inner_arr << node.left.data
+        leaf1 = (height(node.left, count) if node.left).to_i
+        leaf2 = (height(node.right, count) if node.right).to_i
+
+        leaf1 > leaf2 ? leaf1 : leaf2
+    end
+
+    def depth(node, current_node = @root, count=0)
+        # return if the current node is equal to n
+        return count if current_node.data == node.data
+
+        count += 1
+            
+        # if n is lesser than current node then move left, else move right
+        if node.data < current_node.data
+            depth(node, current_node.left, count)
+        else
+            depth(node, current_node.right, count)
         end
+    end
 
-        if node.right
-            inner_arr << node.right.data
-        end
+    def balanced?
+        diff = (height(@root.left) - height(@root.right)).abs
 
-        arr << inner_arr if inner_arr.length > 0
+        diff <= 1 ? true : false
+    end
 
-        depth(node.left, arr)
-        depth(node.right, arr)
+    def rebalance
+        lo_array = level_order(@root)
+        @root = build_tree(lo_array)
     end
 end
 
-tree = Tree.new([3, 4, 5, 6, 9, 10, 100, 80, 6, 8, 99])
+# Driver script
+
+# 1. Create a binary search tree from an array of random numbers (`Array.new(15) { rand(1..100) }`)
+
+tree = Tree.new(Array.new(15) {rand(1..100)})
+
+# 2. Confirm that the tree is balanced by calling `#balanced?`
+
+pp tree.balanced?
+
+# 3. Print out all elements in level, pre, post, and in order
+
+puts "lo: #{tree.level_order}"
+puts "pre: #{tree.preorder}"
+puts "post: #{tree.postorder}"
+puts "in: #{tree.inorder}"
+
+# 4. try to unbalance the tree by adding several numbers > 100
+
+5.times do
+    tree.insert(rand(100..200))
+end
+
+# 5. Confirm that the tree is unbalanced by calling `#balanced?`
 
 pp tree.pretty_print
+pp tree.balanced?
 
-pp tree.depth
+# 6. Balance the tree by calling `#rebalance`
 
-pp tree.level_order
+tree.rebalance
+pp tree.pretty_print
+
+# 7. Confirm that the tree is balanced by calling `#balanced?`
+
+pp tree.balanced?
+
+# 8. Print out all elements in level, pre, post, and in order
+
+puts "lo: #{tree.level_order}"
+puts "pre: #{tree.preorder}"
+puts "post: #{tree.postorder}"
+puts "in: #{tree.inorder}"
