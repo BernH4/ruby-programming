@@ -29,3 +29,5 @@ A repository for projects made using Ruby, following [The Odin's Project Ruby's 
 13. Linked List → from [Project: Linked Lists](https://www.theodinproject.com/courses/ruby-programming/lessons/linked-lists?ref=lnav)
 
 14. Binary Search Trees → from [Project 1: Binary Search Trees](https://www.theodinproject.com/courses/ruby-programming/lessons/data-structures-and-algorithms)
+
+15. Knight's Travails → from [Project 2: Knight's Travails](https://www.theodinproject.com/courses/ruby-programming/lessons/data-structures-and-algorithms)
